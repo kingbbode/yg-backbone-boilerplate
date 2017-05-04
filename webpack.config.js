@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-    context: path.resolve(__dirname, 'src'),
+    context: path.resolve(__dirname, 'src/main/resources/static'),
     entry: './app.js',
     module: {
         rules: [
@@ -20,6 +20,13 @@ const config = {
             }
         ]
     },
+    plugins : [
+        new webpack.ProvidePlugin({
+            $ : "jquery",
+            Backbone : "backbone",
+            _ : "underscore"
+        })
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'

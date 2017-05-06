@@ -3,7 +3,9 @@ const path = require('path');
 
 const config = {
     context: path.resolve(__dirname, 'src/main/resources/static'),
-    entry: './app.js',
+    entry: {
+        app: './app.js'
+    },
     module: {
         rules: [
             {

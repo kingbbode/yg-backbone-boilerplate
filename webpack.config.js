@@ -1,16 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
+const webpackMerge = require('webpack-merge');
 
 const config = {
     context: path.resolve(__dirname, 'src/main/resources/static'),
     entry: {
-        app: './app.js'
+        app: './AppRouter.js'
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                include: path.resolve(__dirname, 'src'),
                 use: [{
                     loader: 'babel-loader',
                     options: {
@@ -19,6 +19,10 @@ const config = {
                         ]
                     }
                 }]
+            },
+            { 
+                test: /\.hbs$/, 
+                loader: "handlebars-loader" 
             }
         ]
     },
@@ -28,18 +32,9 @@ const config = {
             Backbone : "backbone",
             _ : "underscore"
         })
-    ],
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    }
+    ]
 };
 
-if (process.env.NODE_ENV === 'prod') {
-    config.plugins = [
-        new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-        new webpack.LoaderOptionsPlugin({ minimize: true })
-    ]
+module.exports = function(env) {
+    return webpackMerge(config, require(`./webpack.${env}.js`))
 }
-
-module.exports = config;

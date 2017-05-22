@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
     plugins: [
-        new webpack.LoaderOptionsPlugin({
+        /*new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
         }),
@@ -17,11 +17,10 @@ module.exports = {
                 screw_ie8: true
             },
             comments: false
-        })
+        })*/
     ],
     output: {
         path: path.resolve(__dirname, 'src/main/resources/static/dist'),
-        filename: '[name].min.js',
-        sourceMapFilename: '[name].min.map'
+        filename: '[name].js'
     }
 }

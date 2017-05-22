@@ -2,18 +2,21 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
+    devtool: 'inline-source-map',
     devServer: {
-        port: 7777,
-        host: 'localhost',
         historyApiFallback: true,
-        noInfo: false,
-        stats: 'minimal',
-        publicPath: publicPath
+        host: "0.0.0.0",
+        port: 3000,
+        proxy: {
+            "**": "http://localhost:8080"
+        }
     },
+    plugins: [
+        new webpack.NamedModulesPlugin() //prints more readable module names in the browser console on HMR updates
+    ],
     output: {
         path: path.resolve(__dirname, 'src/main/resources/static/dist'),
-        filename: '[name].js',
-        sourceMapFilename: '[name].map'
+        publicPath: '/dist',
+        filename: '[name].js'
     }
 }

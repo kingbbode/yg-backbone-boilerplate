@@ -4,6 +4,7 @@ export default class HelloWorldView extends Backbone.View
 {
     constructor(options) {
         //element binding
+        console.log('options', options);
         super(options)
     }
 
@@ -12,6 +13,8 @@ export default class HelloWorldView extends Backbone.View
         //class variable event binding
         this.customMessage = options.message;
         this.message = 'hello world';
+        this.custom = this.$el.data('msg');
+        console.log('initialize', this.$el);
         this.render();
     }
 
@@ -25,7 +28,8 @@ export default class HelloWorldView extends Backbone.View
         this.$el.html(
             template(
                 {
-                    message : this.message + "(" + this.customMessage + ")"
+                    message : this.message + " (custom11:" + this.customMessage + ")",
+                    custom: this.custom
                 }
             )
         );

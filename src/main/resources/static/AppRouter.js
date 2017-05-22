@@ -8,7 +8,7 @@ class AppRouter extends Backbone.Router {
     }
 
     homeRoute() {
-        new AppView({el:"body"});
+        new AppView();
     }
 }
 

@@ -1,16 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const webpackMerge = require('webpack-merge');
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 const config = {
-    context: path.resolve(__dirname, 'src/main/resources/static'),
     entry: {
-        app: './AppRouter.js'
+        app: path.resolve(__dirname, 'src/main/resources/static/AppRouter.js')
     },
     module: {
         rules: [
             {
                 test: /\.js$/,
+                exclude: /node_modules/,
                 use: [{
                     loader: 'babel-loader',
                     options: {
@@ -31,6 +32,11 @@ const config = {
             $ : "jquery",
             Backbone : "backbone",
             _ : "underscore"
+        }),
+        new CommonsChunkPlugin({
+            name: "common",
+            filename: "common.js",
+            minChunks: Infinity
         })
     ]
 };

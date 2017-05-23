@@ -5,7 +5,16 @@ const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 const config = {
     entry: {
-        app: path.resolve(__dirname, 'src/main/resources/static/AppRouter.js')
+        app: path.resolve(__dirname, 'src/main/resources/static/app/AppRoot.js'),
+        ace : [
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/ace-extra.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/ace.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/ace.sidebar.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/bootstrap.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/bootstrap-colorpicker.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/bootstrap-multiselect.js'),
+            path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/bootstrap-wysiwyg.js')
+        ]
     },
     module: {
         rules: [
@@ -30,6 +39,7 @@ const config = {
     plugins : [
         new webpack.ProvidePlugin({
             $ : "jquery",
+            jQuery : "jquery",
             Backbone : "backbone",
             _ : "underscore"
         }),

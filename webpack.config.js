@@ -5,7 +5,7 @@ const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 const config = {
     entry: {
-        app: path.resolve(__dirname, 'src/main/resources/static/app/AppRoot.js'),
+        app: path.resolve(__dirname, 'src/main/resources/static/app/App.js'),
         ace : [
             path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/ace-extra.js'),
             path.resolve(__dirname, 'src/main/resources/static/zum/js/cms/ace/ace.js'),
@@ -41,7 +41,7 @@ const config = {
             $ : "jquery",
             jQuery : "jquery",
             Backbone : "backbone",
-            _ : "underscore"
+            _ : "underscore",
         }),
         new CommonsChunkPlugin({
             name: "common",

@@ -1,5 +1,5 @@
-import AppView from './AppView'
 import Zum from '../zum'
+import CmsView from './CmsView'
 
 var invoke = function(pages, route, app){
     _.each(pages, function(page){
@@ -16,10 +16,10 @@ var invoke = function(pages, route, app){
     });
 };
 
-export default Zum.Router.clazz('AppRouter')({
+export default Zum.Router.clazz('CmsRouter')({
     initialize(options){
         this.route = {};
-        this.app = new AppView(options);
+        this.app = new CmsView(options);
         invoke(options, this.route, this.app);
     },
 

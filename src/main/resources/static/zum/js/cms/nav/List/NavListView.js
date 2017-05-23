@@ -1,4 +1,4 @@
-import Zum from '../zum'
+import Zum from "../../../zum"
 import template from "./template.hbs"
 import NavItemView from '../item/NavItemView'
 

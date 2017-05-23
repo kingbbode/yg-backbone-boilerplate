@@ -1,4 +1,4 @@
-import Zum from '../zum'
+import Zum from '../../zum'
 import NavItemView from './Item/NavItemView'
 import NavListView from './List/NavListView'
 
@@ -18,7 +18,7 @@ export default Zum.View.clazz('NavView')({
         try{window.ace.settings.check('sidebar' , 'fixed')}catch(e){}
         try{window.ace.settings.check('sidebar' , 'collapsed')}catch(e){}
     },
-    active(selectGroup){
+    active(page){
 
     }
 });

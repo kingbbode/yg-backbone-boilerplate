@@ -2,7 +2,7 @@ import Zum from '../zum'
 import NavView from './nav/NavView'
 import BreadcrumbsView from './breadcrumbs/BreadcrumbsView'
 
-export default Zum.View.clazz('AppView')({
+export default Zum.View.clazz('CmsView')({
     el:'body',
     initialize(pages) {
         this.nav = new NavView(
@@ -13,8 +13,7 @@ export default Zum.View.clazz('AppView')({
         );
         this.breadcrumbs = new BreadcrumbsView(
             {
-                el: '#breadcrumbs',
-                pages: pages || {}
+                el: '#breadcrumbs'
             }
         );
         try{window.ace.settings.check('main-container' , 'fixed')}catch(e){}

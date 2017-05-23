@@ -1,4 +1,4 @@
-import Zum from '../zum'
+import Zum from "../../../zum"
 import template from "./template.hbs"
 
 export default Zum.View.clazz('NavItemView')({

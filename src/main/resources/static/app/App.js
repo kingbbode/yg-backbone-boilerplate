@@ -1,15 +1,7 @@
-import AppRouter from '../zum/js/AppRouter'
+import Zum from '../zum/js/zumcms'
 import HelloWorldView from './HelloWorld/HelloWorldView'
 
-export default class AppRoot
-{
-    start(navInfo){
-        new AppRouter(navInfo);
-        Backbone.history.start();
-    }
-}
-
-new AppRoot().start(
+new Zum.Cms().start(
     [
         {
             path : ["","index"],
